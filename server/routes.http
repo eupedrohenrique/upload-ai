@@ -1,0 +1,37 @@
+# @name get-prompts
+GET http://localhost:3333/prompt
+
+###
+
+# @name upload
+POST http://localhost:3333/videos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="example.mp3"
+Content-Type: audio/mpeg
+
+< ./example.mp3
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+# @name create-transcription
+POST http://localhost:3333/videos/fa16fd62-bdcb-43c7-8311-2d24854363cf/transcription
+Content-Type: application/json
+
+{
+  "prompt": "Taylor Swift, Taylor's Version, Cruel Summer"
+}
+
+###
+
+# @name generate-ai-completion
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+  "videoId": "fa16fd62-bdcb-43c7-8311-2d24854363cf",
+  "temperature": 0.5,
+  "template": "Gere um resumo da transcrição da música informada a seguir: '''{transcription}'''"
+}
