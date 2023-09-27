@@ -1,5 +1,5 @@
 # @name get-prompts
-GET http://localhost:3333/prompt
+GET http://localhost:3333/prompts
 
 ###
 
@@ -17,11 +17,11 @@ Content-Type: audio/mpeg
 ###
 
 # @name create-transcription
-POST http://localhost:3333/videos/fa16fd62-bdcb-43c7-8311-2d24854363cf/transcription
+POST http://localhost:3333/videos/5fc5aba8-4a39-4900-bbff-89dc25d4b81d/transcription
 Content-Type: application/json
 
 {
-  "prompt": "Taylor Swift, Taylor's Version, Cruel Summer"
+  "prompt": "Cruel Summer"
 }
 
 ###
@@ -31,7 +31,7 @@ POST http://localhost:3333/ai/complete
 Content-Type: application/json
 
 {
-  "videoId": "fa16fd62-bdcb-43c7-8311-2d24854363cf",
+  "videoId": "5fc5aba8-4a39-4900-bbff-89dc25d4b81d",
   "temperature": 0.5,
-  "template": "Gere um resumo da transcrição da música informada a seguir: '''{transcription}'''"
+  "prompt": "Gere um resumo da transcrição do vídeo informada a seguir: '''{transcription}'''"
 }
