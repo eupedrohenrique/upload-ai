@@ -45,7 +45,7 @@ export function App() {
 
         <div className="flex items-center gap-3">
           <span className="text-sm text-muted-foreground">
-            Desenvolvido com 💜 no NLW da Rocketseat
+            Desenvolvido com 💜 por Pedro Henrique
           </span>
 
           <Separator orientation="vertical" className="h-6" />
