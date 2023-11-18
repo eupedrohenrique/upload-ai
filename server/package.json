@@ -9,6 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "prepare": "prisma generate",
   "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
